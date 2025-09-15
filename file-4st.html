@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Grammar Classes | Complete English Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .browser-notice {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+            text-align: center;
+            color: #856404;
+            border-left: 4px solid var(--warning);
+        }
+
+        .browser-notice i {
+            margin-right: 0.5rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin: 2rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 i {
+            margin-right: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        /* Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-info {
+            padding: 1rem;
+            flex-grow: 1;
+        }
+
+        .video-info h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .video-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .video-date i {
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Notes Grid */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .note-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .note-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .note-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .note-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .download-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Search Section */
+        .search-section {
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            padding-left: 2.5rem;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .social-links {
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .video-grid, .notes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .social-links a {
+                margin: 0 10px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        .loading {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>My Grammar Classes</h1>
+            <p>Complete English Grammar Video Lessons with Downloadable Notes for Better Learning</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="browser-notice">
+            <i class="fas fa-exclamation-triangle"></i>
+            If videos don't play, use <strong>Chrome, Safari, or Edge</strong> browsers (HLS format support required)
+        </div>
+
+        <div class="search-section">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search for lessons (e.g. 'Sentence', 'Verbs', 'Determiners')..." id="searchInput">
+        </div>
+
+        <section id="videos">
+            <h2><i class="fas fa-video"></i> Video Lessons</h2>
+            <div class="video-grid" id="videoGrid">
+                <!-- Video 1 -->
+                <div class="video-card" data-title="Basic Grammar Class 02" data-date="08-Nov-2024" data-topic="Sentence">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+02">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364851207112/6364851207112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 02 | The Sentence</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 8, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card" data-title="Basic Grammar Class 03" data-date="09-Nov-2024" data-topic="Sentence">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+03">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364451629112/6364451629112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 03 | The Sentence</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 9, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card" data-title="Basic Grammar Class 04" data-date="11-Nov-2024" data-topic="Sentence">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+04">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364540905112/6364540905112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 04 | The Sentence</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 11, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="video-card" data-title="Basic Grammar Class 05" data-date="12-Nov-2024" data-topic="Sentence">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+05">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364585244112/6364585244112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 05 | The Sentence</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 12, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="video-card" data-title="Basic Grammar Class 06" data-date="13-Nov-2024" data-topic="Understanding Sentences">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+06">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/vod_non_drm_hls/migration/6364641427112/6364641427112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 06 | Understanding Sentences</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 13, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="video-card" data-title="Basic Grammar Class 07" data-date="14-Nov-2024" data-topic="Understanding Sentences">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+07">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364693108112/6364693108112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 07 | Understanding Sentences</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 14, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 7 -->
+                <div class="video-card" data-title="Basic Grammar Class 08" data-date="18-Nov-2024" data-topic="Adjectives and Determiners">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+08">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364853387112/6364853387112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 08 | Adjectives and Determiners</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 18, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 8 -->
+                <div class="video-card" data-title="Basic Grammar Class 09" data-date="19-Nov-2024" data-topic="Types of Determiners">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+09">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364895257112/6364895257112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 09 | Types of Determiners</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 19, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 9 -->
+                <div class="video-card" data-title="Basic Grammar Class 10" data-date="20-Nov-2024" data-topic="Types of Verbs">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+10">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364942711112/6364942711112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 10 | Types of Verbs</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 20, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 10 -->
+                <div class="video-card" data-title="Basic Grammar Class 11" data-date="21-Nov-2024" data-topic="Linking Verbs">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+11">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364987593112/6364987593112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 11 | Linking Verbs</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 21, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 11 -->
+                <div class="video-card" data-title="Basic Grammar Class 12" data-date="22-Nov-2024" data-topic="Non-Finite Verbs">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+12">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6365039936112/6365039936112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 12 | Non-Finite Verbs</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 22, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 12 -->
+                <div class="video-card" data-title="Basic Grammar Class 13" data-date="25-Nov-2024" data-topic="Participles">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+13">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6365154426112/6365154426112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 13 | Participles</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 25, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 13 -->
+                <div class="video-card" data-title="Basic Grammar Class 14" data-date="26-Nov-2024" data-topic="Gerund and Present Participle">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+14">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6365201939112/6365201939112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 14 | Gerund and Present Participle</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 26, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 14 -->
+                <div class="video-card" data-title="Basic Grammar Class 15" data-date="27-Nov-2024" data-topic="Infinitives">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+15">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6365244347112/6365244347112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 15 | Infinitives</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 27, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 15 -->
+                <div class="video-card" data-title="Basic Grammar Class 16" data-date="28-Nov-2024" data-topic="Idioms and Phrases">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+16">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6365289651112/6365289651112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 16 | Idioms and Phrases</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 28, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 16 -->
+                <div class="video-card" data-title="Basic Grammar Class 17" data-date="29-Nov-2024" data-topic="Idioms and Phrases">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+17">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6365321404112/6365321404112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 17 | Idioms and Phrases</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 29, 2024</div>
+                    </div>
+                </div>
+
+                <!-- Video 17 -->
+                <div class="video-card" data-title="Basic Grammar Class 01" data-date="07-Nov-2024" data-topic="Introduction">
+                    <div class="video-container">
+                        <video controls poster="https://via.placeholder.com/400x225/2c3e50/ffffff?text=Basic+Grammar+Class+01">
+                            <source src="https://d14v4v80cpjht7.cloudfront.net/file_library/videos/migration/brightcove/6364382812112/6364382812112.m3u8" type="application/x-mpegURL">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Basic Grammar Class 01 | Introduction</h3>
+                        <div class="video-date"><i class="far fa-calendar-alt"></i> November 7, 2024</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="notes">
+            <h2><i class="fas fa-file-pdf"></i> Downloadable Notes</h2>
+            <div class="notes-grid" id="notesGrid">
+                <!-- Note 1 -->
+                <div class="note-card" data-title="Idioms and Phrases" data-date="28-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Idioms and Phrases (Nov 28)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67491739db4c3_IDIOMS_PHRASEScompressed.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 2 -->
+                <div class="note-card" data-title="Infinitives" data-date="27-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Infinitives (Nov 27)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/674708ac09cc4_INFINITIVES.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 3 -->
+                <div class="note-card" data-title="Gerund and Present Participle" data-date="26-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Gerund and Present Participle (Nov 26)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6745b2752c4c6_GERUND_PRESENT_PARTICIPLE.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 4 -->
+                <div class="note-card" data-title="Participles" data-date="25-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Participles (Nov 25)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/674568d12afe2_PARTICIPLES.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 5 -->
+                <div class="note-card" data-title="Non-Finite Verbs" data-date="22-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Non-Finite Verbs (Nov 22)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6745b2c224402_NONFINITE_VERBS.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 6 -->
+                <div class="note-card" data-title="Linking Verbs" data-date="21-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Linking Verbs (Nov 21)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/67401702cdc95_LINKING_VERBS.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 7 -->
+                <div class="note-card" data-title="Types of Verbs" data-date="20-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Types of Verbs (Nov 20)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/674016ec98ac9_TYPES_OF_VERBS.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 8 -->
+                <div class="note-card" data-title="Types of Determiners" data-date="19-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Types of Determiners (Nov 19)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/673c7d9e79f5f_TYPES_OF_DETERMINERS.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 9 -->
+                <div class="note-card" data-title="Adjectives and Determiners" data-date="18-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Adjectives and Determiners (Nov 18)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/673b2dde6b401_ADJECTIVES_DETERMINERS.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 10 -->
+                <div class="note-card" data-title="Understanding Sentences Class 2" data-date="14-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Understanding Sentences (Class 2, Nov 14)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/673b0508b69da_UNDERSTANDING_SENTENCES_CLASS2.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 11 -->
+                <div class="note-card" data-title="Understanding Sentences" data-date="13-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Understanding Sentences (Nov 13)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6735931f5aad8_UNDERSTANDING_SENTENCES.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 12 -->
+                <div class="note-card" data-title="English Basics Class 5" data-date="12-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>English Basics (Class 5, Nov 12)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/673468375ace9_ENGLISH_BASICS_CLASS5.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 13 -->
+                <div class="note-card" data-title="English Basics Class 4" data-date="11-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>English Basics (Class 4, Nov 11)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/6732fc6e76672_ENGLISH_BASICS_CLASS4.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+
+                <!-- Note 14 -->
+                <div class="note-card" data-title="English Basics Class 3" data-date="09-Nov-2024">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>English Basics (Class 3, Nov 9)</h3>
+                    <a href="https://cwmediabkt99.crwilladmin.com/92013a99927c4842b0a70fbd6f064a95:crwilladmin/class-attachment/673095ffef653_ENGLISH_BASICS_CLASS3.pdf" class="download-btn" download>
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 My Grammar Classes | All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            const videoCards = document.querySelectorAll('.video-card');
+            const noteCards = document.querySelectorAll('.note-card');
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+
+                // Search videos
+                videoCards.forEach(card => {
+                    const title = card.getAttribute('data-title').toLowerCase();
+                    const topic = card.getAttribute('data-topic').toLowerCase();
+                    const date = card.getAttribute('data-date').toLowerCase();
+
+                    if (title.includes(searchTerm) || topic.includes(searchTerm) || date.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Search notes
+                noteCards.forEach(card => {
+                    const title = card.getAttribute('data-title').toLowerCase();
+                    const date = card.getAttribute('data-date').toLowerCase();
+
+                    if (title.includes(searchTerm) || date.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            // Add loading class to videos for better UX
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.addEventListener('waiting', function() {
+                    this.classList.add('loading');
+                });
+
+                video.addEventListener('playing', function() {
+                    this.classList.remove('loading');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
